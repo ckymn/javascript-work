@@ -9,7 +9,7 @@ const Users = [
   {
     id: 2,
     username: 'ahmet',
-    city: 'Ankara'
+    city: 'Istanbul'
   },
   {
     id: 3,
@@ -20,17 +20,17 @@ const Users = [
 const Posts = [
   {
     id: 1,
-    title: 'merhaba arakdaslar sizin ben ,,,,,,,',
+    title: 'merhaba arakdaslar sizi cok seviyorum',
     userId: 1
   },
   {
     id: 2,
-    title: 'merhaba arakdaslar sizin ben ,,,,,,,',
+    title: 'merhaba arakdaslar sizi cok seviyorum',
     userId: 2
   },
   {
     id: 3,
-    title: 'merhaba arakdaslar sizin ben ,,,,,,,',
+    title: 'merhaba arakdaslar sizi cok seviyorum',
     userId: 3
   }
 ]
