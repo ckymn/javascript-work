@@ -5,9 +5,7 @@
  *      -m : multiline, Cok Satir Islemler
  *      -^ : metnin en basinda aram islemi yapar
  *      -$ : metnin en sonunda arama islemi yapar
- *  --.test() //ture or false
- *  --.search() // 
- *  --.match()
+ *  --.match() // aratilan harfi yada kelimeyi array olar. doner
  *  --.split()
  *  --.replace() //yerne koymak
  */
