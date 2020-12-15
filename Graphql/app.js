@@ -47,11 +47,13 @@ const typeDefs = `
       id: ID!
       username:String!
       city:String
+      posts:[Post!]!
   }
   type Post{
       id: ID!
       title: String!
       userId: Int!
+      user:User!
   }
  
 `
@@ -59,16 +61,20 @@ const typeDefs = `
 // args : user() parametre olarak gonderdigimiz deger demektir.
 const resolvers = {
   Query: {
-    user: (parent, args) => {
-      return Users.find(user => user.id === +args.id)
-    },
-    post: (parent, args) => {
-        return Posts.find(user => (user.id).toString() === args.id)
-    },
-    users:(args)=> Users,
-    posts:(args) => Posts
+    user: (parent, args) => Users.find(user => user.id === +args.id),
+    post: (parent, args) => Posts.find(user => user.id.toString() === args.id),
+    users: args => Users,
+    posts: args => Posts
+  },
+  //user icin bir tip tanimi olmadigi icin
+  Post: {
+    user: (parent, args) => Users.find(user => user.id === parent.userId)
+  },
+  User: {
+    posts: (parent, args) => Posts.filter(post => {
+        return post.userId == parent.id
+      })
   }
 }
-
 const server = new GraphQLServer({ typeDefs, resolvers })
 server.start(() => console.log('Server is running on localhost:4000'))
